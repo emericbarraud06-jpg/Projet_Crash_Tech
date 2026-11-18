@@ -3,7 +3,15 @@
 
 
 int main(){
+FILE* fichier=NULL;
 int x;
+
+if(fichier==NULL){
+  printf("Ouverture du fichier impossible\n");
+  printf("code d'erreur = %d \n", errno );
+  printf("Message d'erreur = %s \n", strerror(errno) );
+  exit(1);
+}
   
 
 printf("Quelle année souhaitez vous consulter ?\n");
