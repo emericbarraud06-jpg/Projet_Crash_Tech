@@ -10,6 +10,6 @@ typedef struct{
 
 typedef struct tableaustatique{
   int tab[20]; // l'année est entre 2005 et 2024
-  int nbaccident;
+  int nbaccident; // on compte le nombre d'accidents
   Severité nbvictimes; // on compte le nombre de victimes total
 }AnnéeAccident;
