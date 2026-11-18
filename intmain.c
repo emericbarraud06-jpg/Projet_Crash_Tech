@@ -6,6 +6,8 @@ int main(){
 FILE* fichier=NULL;
 int x;
 
+
+fichier=fopen("crashtest.csv", "r");
 if(fichier==NULL){
   printf("Ouverture du fichier impossible\n");
   printf("code d'erreur = %d \n", errno );
@@ -21,7 +23,7 @@ while(x.annee < 2005 || x.annee > 2024){
   scanf("%d", &x.annee);
 }  // ici on demande à l'utilisateur de saisir une année à consulter
 
-
+fclose(fichier);
 
 
   return 0;
