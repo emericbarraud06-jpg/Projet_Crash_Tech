@@ -5,11 +5,11 @@ typedef struct{
     int mort;
     int blessegrave;
     int blesseleger;
-}Severité;
+}Severité; // ici on compte le nombre de victimes par type de sévérité
 
 
 typedef struct tableaustatique{
   int tab[20];
   int nbaccident;
-  Severité nbvictimes;
+  Severité nbvictimes; // on compte le nombre de victimes total
 }AnnéeAccident;
