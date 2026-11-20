@@ -1,10 +1,7 @@
 #include "year_data.h"
 
 AnnéeAccident nombre_accidents_par_année(AnnéeAccident e){
-        int count=0;
-        e.nbaccidents;
-        count++;
-
+        e.nbaccidents++;
         return e;
 }
 
