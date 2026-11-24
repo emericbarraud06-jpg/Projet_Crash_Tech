@@ -24,4 +24,6 @@ typedef struct NoeudAccident {
     struct NoeudAccident *gauche;
     struct NoeudAccident *droite;
     int equilibre; 
-} NoeudAccident;
+} NoeudAccident, *pNoeud;
+
+
