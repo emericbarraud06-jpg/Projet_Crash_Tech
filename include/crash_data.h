@@ -1,5 +1,5 @@
 
-#define AGE;
+#define AGE 255
 
 typedef int Element
 
@@ -26,4 +26,4 @@ typedef struct NoeudAccident {
     int equilibre; 
 } NoeudAccident, *pNoeud;
 
-
+void executer_mode_crash_data(const char *chemin_fichier);
