@@ -69,15 +69,23 @@ int charger_Donnees_annee(char* fichier, AnneeAccidents* donnees){ //ici on char
                 // Exemple ici si l'année est la 1ère colonne et la gravité la 2ème (séparées par ;)
                 if (sscanf(ligne, "%d;%d", &anneeLue, &graviteLue) == 2) {
             
-                            if (anneeLue == x.annee) {
+                if (anneeLue == x.annee) {
                                 x.nbaccidents++; // On compte l'accident
 
                         // On compte la sévérité 1= indemme, 2 = mort, 3 = gravement blessé, 4 = légèrement blessé
-                                if (graviteLue == 1) x.nbvictimes.indemme++;
-                                else if (graviteLue == 2) x.nbvictimes.mort++;
-                                else if (graviteLue == 3) x.nbvictimes.blessegrave++;
-                                else if (graviteLue == 4) x.nbvictimes.blesseleger++;
-                        }
+                                if (graviteLue == 1){
+                                        donnees->nbvictimes.indemme++;
+                                }
+                                else if (graviteLue == 2){
+                                        donnees->nbvictimes.mort++;
+                                }
+                                else if (graviteLue == 3){
+                                        donnees->nbvictimes.blessegrave++;
+                                }
+                                else if (graviteLue == 4){
+                                         donnees->nbvictimes.blesseleger++;
+                                }
+                         }
                 
         }
         fclose(fichier);
