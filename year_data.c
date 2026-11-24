@@ -89,9 +89,8 @@ int charger_Donnees_annee(char* fichier, AnneeAccidents* donnees){ //ici on char
 
 
 void nombre_de_victimes(AnneeAccidents x){
-
-
-
-
+        int total=x.nbvictimes.indemme+x.nbvictimes.mort+x.nbvictimes.blessegrave+x.nbvictimes.blesseleger;
+        printf("\n Nombre d'accidents en %d : %d \n", x.annee, x.nbaccidents);
+        printf("\n Nombre de victimes : %d \n Indemmes %d , Tuées : %d, Gravement blessées : %d, Légèrement blessées : %d \n", total, x.nbvictimes.indemme, x.nbvictimes.mort, x.nbvictimes.blessegrave, x.nbvictimes.blesseleger);
 }
 
