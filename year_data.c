@@ -88,3 +88,10 @@ int charger_Donnees_annee(char* fichier, AnneeAccidents* donnees){ //ici on char
 }
 
 
+void nombre_de_victimes(AnneeAccidents x){
+
+
+
+
+}
+
