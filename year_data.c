@@ -45,3 +45,46 @@ AnneeAccidents compter_pour_annee(File*fichier, int anneeRecherchee){
 
         return bilan;
 }
+
+
+
+int charger_Donnees_annee(char* fichier, AnneeAccidents* donnees){ //ici on charge les données des accidents par année grâce au fichier
+        FILE *fichier = fopen(fichier, "r");
+        fichier=fopen("crashtest.csv", "r");
+        if(fichier==NULL){
+            printf("Ouverture du fichier impossible\n");
+            printf("code d'erreur = %d \n", errno );
+            printf("Message d'erreur = %s \n", strerror(errno) );
+            exit(1);
+        }
+  
+        char ligne[1024];
+        int anneeLue; 
+        int graviteLue;
+
+         fgets(ligne, sizeof(ligne), fichier);
+
+        while (fgets(ligne, sizeof(ligne), fichier) != NULL) {
+                // ATTENTION : À adapter selon l'ordre exact des colonnes de crashtest.csv
+                // Exemple ici si l'année est la 1ère colonne et la gravité la 2ème (séparées par ;)
+                if (sscanf(ligne, "%d;%d", &anneeLue, &graviteLue) == 2) {
+            
+                            if (anneeLue == x.annee) {
+                                x.nbaccidents++; // On compte l'accident
+
+                        // On compte la sévérité 1= indemme, 2 = mort, 3 = gravement blessé, 4 = légèrement blessé
+                                if (graviteLue == 1) x.nbvictimes.indemme++;
+                                else if (graviteLue == 2) x.nbvictimes.mort++;
+                                else if (graviteLue == 3) x.nbvictimes.blessegrave++;
+                                else if (graviteLue == 4) x.nbvictimes.blesseleger++;
+
+                              int total=x.nbvictimes.indemme+x.nbvictimes.mort+x.nbvictimes.blessegrave+x.nbvictimes.blesseleger;
+                            }
+                        }
+                
+        }
+        fclose(fichier);
+        return 1;
+}
+
+
