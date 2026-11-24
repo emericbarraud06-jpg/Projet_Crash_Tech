@@ -16,7 +16,7 @@ if(fichier==NULL){
 }
   
 do{
-    printf("Quelle année souhaitez vous consulter ?\n");
+    printf("Quelle année souhaitez-vous consulter ?\n");
     scanf("%d", &x.annee);
 while{ (x.annee < 2005 || x.annee > 2024);
       
