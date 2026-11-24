@@ -1,8 +1,6 @@
 
 #define AGE 255
 
-typedef int Element
-
 typedef struct Victime {
     int type_usager;  // 1: conducteur, 2: passager, 3: piéton 
     int genre;        // 1: masculin, 2: féminin, autre sinon 
@@ -26,4 +24,4 @@ typedef struct NoeudAccident {
     int equilibre; 
 } NoeudAccident, *pNoeud;
 
-void executer_mode_crash_data(const char *chemin_fichier);
+void executer_mode_crash_data(const char * JSP);
