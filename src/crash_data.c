@@ -1,5 +1,9 @@
 #include "crash_data.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-pNoeud 
+// mettre fonction equilibre, rotation...que tu connais dedja
+
+
 
