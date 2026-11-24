@@ -12,7 +12,7 @@ AnneeAccidents nombre_de_type_de_severite(AnneeAccident e, int gravite){
         if(gravite==1){
           e.nbvictimes.indemme++;
         }
-        if(garvite==2){
+        if(gravite==2){
           e.nbvictimes.mort++;
         }
         if(gravite==3){
