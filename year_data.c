@@ -69,8 +69,8 @@ int charger_Donnees_annee(char* fichier, AnneeAccidents* donnees){ //ici on char
                 // Exemple ici si l'année est la 1ère colonne et la gravité la 2ème (séparées par ;)
                 if (sscanf(ligne, "%d;%d", &anneeLue, &graviteLue) == 2) {
             
-                if (anneeLue == x.annee) {
-                                x.nbaccidents++; // On compte l'accident
+                if (anneeLue == donnees->annee) {
+                                donnees->nbaccidents++; // On compte l'accident
 
                         // On compte la sévérité 1= indemme, 2 = mort, 3 = gravement blessé, 4 = légèrement blessé
                                 if (graviteLue == 1){
