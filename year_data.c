@@ -77,9 +77,6 @@ int charger_Donnees_annee(char* fichier, AnneeAccidents* donnees){ //ici on char
                                 else if (graviteLue == 2) x.nbvictimes.mort++;
                                 else if (graviteLue == 3) x.nbvictimes.blessegrave++;
                                 else if (graviteLue == 4) x.nbvictimes.blesseleger++;
-
-                              int total=x.nbvictimes.indemme+x.nbvictimes.mort+x.nbvictimes.blessegrave+x.nbvictimes.blesseleger;
-                            }
                         }
                 
         }
