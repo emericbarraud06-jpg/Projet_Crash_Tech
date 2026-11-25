@@ -4,7 +4,7 @@
 
 int main(){
 FILE* fichier=NULL;
-AnneeAccidents x = {0};
+AnneeAccident x = {0};
 
 
 fichier=fopen("crashtest.csv", "r");
