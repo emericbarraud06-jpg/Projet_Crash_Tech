@@ -1,5 +1,5 @@
 Instructions du makefile :
 
-year_data.o : entete.h year_data.h year_data.c
+year_data.o : gcc -c entete.h year_data.h year_data.c
 
-main.o : entete.h year_data.h year_data.c main.c
+main.o : gcc - c entete.h year_data.h year_data.c main.c
