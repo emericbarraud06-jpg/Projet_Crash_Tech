@@ -201,3 +201,107 @@ pNoeud rechercher_accident(pNoeud n, unsigned long long cle) {
     }
     return n;
 }
+
+
+const char *libelle_motif_trajet(short motif) {
+    switch (motif) {
+        case 1:  return "Domicile - travail";
+        case 2:  return "Domicile - école";
+        case 3:  return "Courses";
+        case 4:  return "Déplacement professionnel";
+        case 5:  return "Loisirs";
+        default: return (motif >= 6) ? "Autres" : "Non renseigné";
+    }
+}
+
+const char *libelle_type_usager(unsigned char type) {
+    switch (type) {
+        case 1:  return "Conducteur";
+        case 2:  return "Passager";
+        case 3:  return "Piéton";
+        default: return "Inconnu";
+    }
+}
+
+const char *libelle_genre(unsigned char genre) {
+    switch (genre) {
+        case 1:  return "Masculin";
+        case 2:  return "Féminin";
+        default: return "Non relevé";
+    }
+}
+
+const char *libelle_gravite(unsigned char gravite) {
+    switch (gravite) {
+        case 1:  return "Indemne";
+        case 2:  return "Tué";
+        case 3:  return "Blessé grave";
+        case 4:  return "Blessé léger";
+        default: return "Inconnue";+
+    }
+}
+
+void afficher_accident(pNoeud accident) {
+
+    if (accident == NULL) {
+        printf("Aucun accident ne correspond à cette recherche.\n");
+        return;
+    }
+
+    printf("\n=== Récapitulatif de l'accident (Clé : %llu) ===\n", accident->cle);
+
+    const Vehicule *veh = accident->vehicules;
+    while (veh != NULL) {
+        printf("\nVéhicule [%s] | Motif de trajet : %s\n",veh->vehicule_id, libelle_motif_trajet(veh->motif_trajet));
+
+        const Victime *vic = veh->victimes;
+        int num_victime = 1;
+        while (vic != NULL) {
+        
+            printf("  - Victime %d (%s) : ", num_victime++, libelle_type_usager(vic->type_usager));
+            if (vic->age == AGE) {
+            
+                printf("Âge inconnu");
+            } else {
+            
+                printf("%u ans", vic->age);
+            }
+            printf(" | Genre : %s | Gravité : %s\n", libelle_genre(vic->genre), libelle_gravite(vic->gravite));
+            vic = vic->suivant;
+        }
+        veh = veh->suivant;
+    }
+    printf("====================================================\n");
+}
+
+void liberer_victimes(Victime *tete) {
+    while (tete != NULL) {
+        Victime *suivant = tete->suivant;
+        free(tete);
+        tete = suivant;
+    }
+}
+
+void liberer_vehicules(Vehicule *tete) {
+    while (tete != NULL) {
+        Vehicule *suivant = tete->suivant;
+        liberer_victimes(tete->victimes);
+        free(tete);
+        tete = suivant;
+    }
+}
+
+void liberer_avl(pNoeud racine) {
+    if (racine == NULL) {
+        return;
+    }
+    liberer_avl(racine->gauche);
+    liberer_avl(racine->droite);
+    liberer_vehicules(racine->vehicules);
+    free(racine);
+}
+
+
+
+
+
