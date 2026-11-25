@@ -26,7 +26,7 @@ AnneeAccident nombre_de_type_de_severite(AnneeAccident e, int gravite){
         return e;
 }
 
-AnneeAccident compter_pour_annee(FILE*fichier, int anneeRecherchee){
+AnneeAccident compter_pour_annee(const char* fichier, int anneeRecherchee){
         AnneeAccident bilan={0};
         bilan.annee=anneeRecherchee;
         char ligne;
