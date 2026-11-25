@@ -19,7 +19,10 @@ do{
     printf("Quelle année souhaitez-vous consulter ?\n");
     scanf("%d", &x.annee);
 while{ (x.annee < 2005 || x.annee > 2024);
-      
+
+if(charger_Donnees_annee("crashtest.csv", &x)){
+    nombre_de_victimes(x);
+}
       
 fclose(fichier);
 
